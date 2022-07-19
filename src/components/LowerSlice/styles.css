@@ -1,0 +1,26 @@
+.ContainerLowerSlice {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 275px;
+  background-color: rgb(252, 237, 235);
+  padding-bottom: 5rem;
+  text-align: left;
+}
+
+.LowerSlice,
+.ContainerFakeText {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  margin: auto;
+  width: 750px;
+}
+
+.Header:hover {
+  color: tomato;
+}
+
+.Header {
+  padding-right: 5rem;
+}
