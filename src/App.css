@@ -13,6 +13,15 @@
   }
 }
 
+h2 {
+  line-height: 2rem;
+}
+
+p {
+  line-height: 1.75rem;
+  font-size: 14px;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
