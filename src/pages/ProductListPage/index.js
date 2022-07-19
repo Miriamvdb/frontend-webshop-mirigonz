@@ -10,15 +10,9 @@ const ProductListPage = () => {
     async function getProducts() {
       const productResponse = await axios.get("http://localhost:4000/products");
       setProductList(productResponse.data);
-      // console.log(productResponse);
     }
 
     getProducts();
-    // if (params.filter) {
-    //   setFilter(params.filter);
-    // } else {
-    //   setFilter("");
-    // }
   }, []);
 
   return (
