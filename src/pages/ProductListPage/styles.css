@@ -1,0 +1,31 @@
+.ProductListPage {
+    display: flex;
+    justify-content: center;
+    margin: 90px 0 0 0 ;
+}
+
+.Filters-ProductList {
+    display: flex;
+    flex-direction: row;
+    width: 1163px;
+}
+
+.filters{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    text-align: left;
+    width: 242px;
+    margin: 40px 0 0 0;
+}
+
+.filters-child {
+    margin: 0 0 40px 0;
+}
+
+.list{
+    display: flex;
+    flex-direction: column;
+list-style: none;
+margin: 15px 0 0 0 ;
+}
