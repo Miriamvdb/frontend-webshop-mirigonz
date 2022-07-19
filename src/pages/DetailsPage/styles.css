@@ -1,0 +1,26 @@
+.ContainerDetailsPage {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 5rem;
+}
+
+.AllProductDetails {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 55%;
+  border: solid 1px lightgray;
+  padding: 2rem;
+}
+
+.ProductImage {
+  width: 250px;
+}
+
+.ProductDescr {
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
