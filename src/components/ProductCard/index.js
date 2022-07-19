@@ -11,9 +11,11 @@ const ProductCard = (props) => {
         </div>
       </div>
       <div className="card-text-section">
-        <div className="product-title">
-          <b>{props.title}</b>
-        </div>{" "}
+        <div>
+          <NavLink className="product-title" to={`/details/${props.id}`}>
+            {props.title}
+          </NavLink>
+        </div>
         <div className="price-rating-container">
           <b className="price">€{props.price}</b>
           <b>{props.rating} ★★★☆☆</b>
