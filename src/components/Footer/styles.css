@@ -1,0 +1,37 @@
+.FooterContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 275px;
+  background-color: tomato;
+  padding-top: 2rem;
+  padding-bottom: 5rem;
+}
+
+.FooterLink {
+  line-height: 10px;
+}
+
+.FooterNav,
+.FooterCategories,
+.FooterMyAccount,
+.FooterIconsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+  padding-left: 5rem;
+  text-align: left;
+}
+
+.FooterCatergoriesAccountIcons {
+  display: flex;
+  flex-direction: row;
+  padding-left: 30%;
+}
+
+.FooterIcon {
+  text-align: left;
+  padding-top: 0.5rem;
+  padding-right: 1.5rem;
+}
