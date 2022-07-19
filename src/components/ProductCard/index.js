@@ -5,11 +5,7 @@ import { FiShoppingCart, FiHeart, FiSearch } from "react-icons/fi";
 const ProductCard = (props) => {
   return (
     <div className="productCardComponent">
-      <div>
-        <div>
-          <img src={props.image} alt={"logo"} className="card-img" />
-        </div>
-      </div>
+      <img src={props.image} alt={"logo"} className="card-img" />
       <div className="card-text-section">
         <div>
           <NavLink className="product-title" to={`/details/${props.id}`}>
@@ -21,7 +17,9 @@ const ProductCard = (props) => {
           <b>{props.rating} ★★★☆☆</b>
         </div>
         <div className="product-description">
-          <p>{props.description.substring(0, 150)}...</p>
+          <p>
+            {props.description.substring(0, 150)}...Category: {props.categoryId}{" "}
+          </p>
         </div>
         <div className="card-icons">
           <NavLink to="/favorites">
