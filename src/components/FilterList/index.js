@@ -1,24 +1,31 @@
 import "./styles.css";
 
 const FilterList = (props) => {
+  ////////////////////////////
+  const addValue = (filterSelected) => {
+    if (props.getter.includes(filterSelected)) {
+      props.setter(props.getter.filter((val) => val === filterSelected));
+    } else {
+      props.setter([...props.getter, filterSelected]);
+    }
+  };
+  ///////////////////////////////
   return (
-    <div className="FilterListComponent">
-      <div>
-        <div>
-          <img src={props.image} alt={"logo"} className="card-img" />
-        </div>
-      </div>
-      <div className="card-text-section">
-        <div className="product-title">
-          <b>{props.title}</b>
-        </div>{" "}
-        <div className="price-rating-container">
-          <b className="price">€{props.price}</b>
-          <b>{props.rating} ★★★☆☆</b>
-        </div>
-        <div className="product-description">
-          <p>{props.description.substring(0, 150)}...</p>
-        </div>
+    <div className="filters-child">
+      <b>{props.title} </b>
+      <div className="list">
+        {props.values
+          ? props.values.map((propsValue, i) => (
+              <label key={i}>
+                <input
+                  type="checkbox"
+                  value={propsValue}
+                  onChange={() => addValue(propsValue)}
+                />
+                {propsValue}
+              </label>
+            ))
+          : ""}
       </div>
     </div>
   );

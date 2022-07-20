@@ -1,10 +1,11 @@
 import "./styles.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useParams } from "react";
 import axios from "axios";
-import { ProductCard } from "../../components";
+import { ProductCard, FilterList } from "../../components";
 
 const ProductListPage = () => {
   const [productList, setProductList] = useState(null);
+  const [categoryFilterList, setCategoryFilterList] = useState([1, 2, 3, 4]);
 
   useEffect(() => {
     async function getProducts() {
@@ -13,79 +14,49 @@ const ProductListPage = () => {
     }
 
     getProducts();
+
+    // if (params.filter) {
+    //   setFilter(params.filter);
+    // } else {
+    //   setFilter("");
+    // }
   }, []);
 
   return (
     <div className="ProductListPage">
       <div className="Filters-ProductList">
         <div className="filters">
-          <div className="filters-child">
-            <b>Categories</b>
-            <div className="list">
-              <label>
-                <input type="checkbox" />
-                My Value
-              </label>
-              <label>
-                <input type="checkbox" />
-                My Value
-              </label>
-              <label>
-                <input type="checkbox" />
-                My Value
-              </label>
-            </div>
-          </div>
-          <div className="filters-child">
-            <b>Categories</b>
-            <div className="list">
-              <label>
-                <input type="checkbox" />
-                My Value
-              </label>
-              <label>
-                <input type="checkbox" />
-                My Value
-              </label>
-              <label>
-                <input type="checkbox" />
-                My Value
-              </label>
-            </div>
-          </div>
-          <div className="filters-child">
-            <b>Categories</b>
-            <div className="list">
-              <label>
-                <input type="checkbox" />
-                My Value
-              </label>
-              <label>
-                <input type="checkbox" />
-                My Value
-              </label>
-              <label>
-                <input type="checkbox" />
-                My Value
-              </label>
-            </div>
-          </div>
+          <FilterList
+            title={"Categories"}
+            values={[1, 2, 3, 4]}
+            setter={setCategoryFilterList}
+            getter={categoryFilterList}
+          />
+          <p>{JSON.stringify(categoryFilterList)}</p>
         </div>
-
         <div>
           {productList
-            ? productList.map((product, i) => (
-                <ProductCard
-                  key={i}
-                  id={product.id}
-                  title={product.title}
-                  price={product.price}
-                  description={product.description}
-                  rating={product.rating}
-                  image={product.mainImage}
-                  categoryId={product.categoryId}
-                />
-              ))
+            ? productList
+                .filter(
+                  (productObj) =>
+                    categoryFilterList.includes(productObj.categoryId)
+                  // === 3 ||
+                  // Math.round(productObj.rating) === 2 ||
+                  // (productObj.categoryId > 150) &
+                  //   (productObj.categoryId < 300)
+                )
+                .map((product, i) => (
+                  <ProductCard
+                    key={i}
+                    id={product.id}
+                    title={product.title}
+                    price={product.price}
+                    description={product.description}
+                    rating={product.rating}
+                    image={product.mainImage}
+                    categoryId={product.categoryId}
+                  />
+                ))
             : ""}
         </div>
       </div>
