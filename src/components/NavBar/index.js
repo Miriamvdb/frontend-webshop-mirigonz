@@ -1,11 +1,14 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FiUser, FiShoppingCart, FiHeart } from "react-icons/fi";
 import "./styles.css";
 
 const NavBar = (props) => {
+  const navigate = useNavigate();
+
   const logOut = () => {
     console.log("You're logged out!");
     props.setToken(null);
+    navigate("/login");
   };
 
   return (

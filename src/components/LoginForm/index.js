@@ -1,9 +1,11 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const submitLogin = async (event) => {
     console.log("Hi, you're loggin in :)");
@@ -15,8 +17,7 @@ const LoginForm = (props) => {
       });
       console.log(response.data.jwt);
       props.setToken(response.data.jwt);
-      setEmail("");
-      setPassword("");
+      navigate("/");
     } catch (e) {
       console.log(e.message);
     }
