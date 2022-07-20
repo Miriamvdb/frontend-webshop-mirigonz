@@ -12,22 +12,16 @@ const NavBar = (props) => {
     <div className="NavContainer">
       <div className="NavLinksAndInput">
         <div className="NavLinks">
-          <h1 style={{ color: "white" }}>GM</h1>
+          <NavLink to="/">
+            <h1 style={{ color: "white" }}>GM</h1>
+          </NavLink>
+
           <NavLink
             className="link"
             style={({ isActive }) =>
               isActive ? { color: "white", fontWeight: "bold" } : undefined
             }
             to="/"
-          >
-            Home
-          </NavLink>
-          <NavLink
-            className="link"
-            style={({ isActive }) =>
-              isActive ? { color: "white", fontWeight: "bold" } : undefined
-            }
-            to="/shop"
           >
             Shop
           </NavLink>
@@ -36,7 +30,7 @@ const NavBar = (props) => {
             style={({ isActive }) =>
               isActive ? { color: "white", fontWeight: "bold" } : undefined
             }
-            to="/details/:id"
+            to="/about"
           >
             About
           </NavLink>
