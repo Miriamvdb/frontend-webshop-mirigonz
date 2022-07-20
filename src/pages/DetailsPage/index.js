@@ -9,14 +9,18 @@ const DetailsPage = () => {
   const params = useParams();
 
   useEffect(() => {
-    const getProducts = async () => {
-      const response = await axios.get(
-        `http://localhost:4000/products/${params.id}`
-      );
-      console.log(response);
-      setProducts(response.data);
-    };
-    getProducts();
+    try {
+      const getProducts = async () => {
+        const response = await axios.get(
+          `http://localhost:4000/products/${params.id}`
+        );
+        console.log(response);
+        setProducts(response.data);
+      };
+      getProducts();
+    } catch (e) {
+      console.log(e.message);
+    }
   }, [params.id]);
 
   return (

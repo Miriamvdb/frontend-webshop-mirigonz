@@ -2,7 +2,12 @@ import { NavLink } from "react-router-dom";
 import { FiUser, FiShoppingCart, FiHeart } from "react-icons/fi";
 import "./styles.css";
 
-const NavBar = () => {
+const NavBar = (props) => {
+  const logOut = () => {
+    console.log("You're logged out!");
+    props.setToken(null);
+  };
+
   return (
     <div className="NavContainer">
       <div className="NavLinksAndInput">
@@ -35,12 +40,22 @@ const NavBar = () => {
         </div>
       </div>
       <div className="NavIcons">
-        <NavLink
-          style={({ isActive }) => (isActive ? { color: "white" } : undefined)}
-          to="/login"
-        >
-          <FiUser className="icon" />
-        </NavLink>
+        {props.token ? (
+          <div>
+            <div onClick={logOut} style={{ cursor: "pointer" }}>
+              <b>Log out</b>
+            </div>
+          </div>
+        ) : (
+          <NavLink
+            style={({ isActive }) =>
+              isActive ? { color: "white" } : undefined
+            }
+            to="/login"
+          >
+            <FiUser className="icon" />
+          </NavLink>
+        )}
         <NavLink
           style={({ isActive }) => (isActive ? { color: "white" } : undefined)}
           to="/shoppingcard"
