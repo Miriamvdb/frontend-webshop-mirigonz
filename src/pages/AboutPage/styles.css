@@ -1,0 +1,11 @@
+.AboutPage {
+    display: flex;
+        flex-direction: row;
+        justify-content: center;
+}
+
+.text-area{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
