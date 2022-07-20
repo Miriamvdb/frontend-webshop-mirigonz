@@ -39,7 +39,7 @@ const ProductListPage = () => {
             ? productList
                 .filter(
                   (productObj) =>
-                    !categoryFilterList.includes(productObj.categoryId)
+                    categoryFilterList.includes(productObj.categoryId)
                   // === 3 ||
                   // Math.round(productObj.rating) === 2 ||
                   // (productObj.categoryId > 150) &
