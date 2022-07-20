@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { NavBar, Banner, Footer } from "./components";
-import { HomePage, ProductListPage, DetailsPage } from "./pages/";
+import { AboutPage, ProductListPage, DetailsPage } from "./pages/";
 
 function App() {
   return (
@@ -9,9 +9,9 @@ function App() {
       <NavBar />
       <Banner />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/shop" element={<ProductListPage />} />
+        <Route path="/" element={<ProductListPage />} />
         <Route path="/details/:id" element={<DetailsPage />} />
+        <Route path="/about" element={<AboutPage />} />
       </Routes>
       <Footer />
     </div>
