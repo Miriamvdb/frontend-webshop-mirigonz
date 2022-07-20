@@ -5,7 +5,9 @@ import { ProductCard, FilterList } from "../../components";
 
 const ProductListPage = () => {
   const [productList, setProductList] = useState(null);
-  const [categoryFilterList, setCategoryFilterList] = useState([1, 2, 3, 4]);
+  const [categoryFilterList, setCategoryFilterList] = useState([]);
+  const [ratingFilterList, setRatingFilterList] = useState([]);
+  const [priceFilterList, setPriceFilterList] = useState([]);
 
   useEffect(() => {
     async function getProducts() {
@@ -14,12 +16,6 @@ const ProductListPage = () => {
     }
 
     getProducts();
-
-    // if (params.filter) {
-    //   setFilter(params.filter);
-    // } else {
-    //   setFilter("");
-    // }
   }, []);
 
   return (
@@ -32,18 +28,36 @@ const ProductListPage = () => {
             setter={setCategoryFilterList}
             getter={categoryFilterList}
           />
-          <p>{JSON.stringify(categoryFilterList)}</p>
+          {/* <p>{JSON.stringify(categoryFilterList)}</p> */}
+          <FilterList
+            title={"Rating"}
+            values={[2, 3, 4, 5]}
+            setter={setRatingFilterList}
+            getter={ratingFilterList}
+          />
+          <FilterList
+            title={"Price"}
+            values={[
+              "€0.00 - €150.00",
+              "€150.00 - €350.00",
+              "€350.00 - €504.00",
+              "€504.00 +",
+            ]}
+            getter={priceFilterList}
+          />
         </div>
         <div>
           {productList
             ? productList
                 .filter(
                   (productObj) =>
+                    categoryFilterList.length === 0 ||
                     categoryFilterList.includes(productObj.categoryId)
-                  // === 3 ||
-                  // Math.round(productObj.rating) === 2 ||
-                  // (productObj.categoryId > 150) &
-                  //   (productObj.categoryId < 300)
+                )
+                .filter(
+                  (productObj) =>
+                    ratingFilterList.length === 0 ||
+                    ratingFilterList.includes(Math.round(productObj.rating))
                 )
                 .map((product, i) => (
                   <ProductCard

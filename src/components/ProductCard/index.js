@@ -17,9 +17,7 @@ const ProductCard = (props) => {
           <b>{props.rating} ★★★☆☆</b>
         </div>
         <div className="product-description">
-          <p>
-            {props.description.substring(0, 150)}...Category: {props.categoryId}{" "}
-          </p>
+          <p>{props.description.substring(0, 150)}... </p>
         </div>
         <div className="card-icons">
           <NavLink to="/favorites">
