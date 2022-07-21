@@ -7,7 +7,10 @@ const ProductListPage = () => {
   const [productList, setProductList] = useState(null);
   const [categoryFilterList, setCategoryFilterList] = useState([]);
   const [ratingFilterList, setRatingFilterList] = useState([]);
-  const [priceFilterList, setPriceFilterList] = useState([]);
+  const [
+    priceFilterList,
+    // setPriceFilterList
+  ] = useState([]);
 
   useEffect(() => {
     try {
