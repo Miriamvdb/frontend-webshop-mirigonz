@@ -1,5 +1,5 @@
 import "./styles.css";
-import { useEffect, useState, useParams } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { ProductCard, FilterList } from "../../components";
 
@@ -7,7 +7,10 @@ const ProductListPage = () => {
   const [productList, setProductList] = useState(null);
   const [categoryFilterList, setCategoryFilterList] = useState([]);
   const [ratingFilterList, setRatingFilterList] = useState([]);
-  const [priceFilterList, setPriceFilterList] = useState([]);
+  const [
+    priceFilterList,
+    // setPriceFilterList
+  ] = useState([]);
 
   useEffect(() => {
     async function getProducts() {

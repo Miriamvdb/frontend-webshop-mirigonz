@@ -2,23 +2,24 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const LoginForm = (props) => {
+const SignUpForm = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const submitLogin = async (event) => {
-    console.log("Hi, you're logged in :)");
+  console.log(name);
+
+  const submitSignUp = async (event) => {
+    console.log("Hi, you're signed up :)");
     event.preventDefault();
     try {
-      const response = await axios.post("http://localhost:4000/auth/login", {
+      const response = await axios.post("http://localhost:4000/auth/signup", {
+        name: name,
         email: email,
         password: password,
       });
-      props.setToken(response.data.jwt);
-      props.setUser(response.data.user);
-      // console.log(response.data.jwt);
-      // console.log(response.data.user);
+      console.log(response.data.name);
       navigate("/");
     } catch (e) {
       console.log(e.message);
@@ -27,9 +28,22 @@ const LoginForm = (props) => {
 
   return (
     <div>
-      <form onSubmit={submitLogin}>
+      <p style={{ color: "gray", marginTop: -5, fontWeight: "bold" }}>
+        Welcome! Create an account
+      </p>
+      <form onSubmit={submitSignUp}>
         <input
-          className="InputLogin"
+          className="InputSignUp"
+          type="text"
+          value={name}
+          placeholder="Name"
+          onChange={(event) => {
+            setName(event.target.value);
+          }}
+          required
+        />
+        <input
+          className="InputSignUp"
           type="text"
           value={email}
           placeholder="Email address"
@@ -40,7 +54,7 @@ const LoginForm = (props) => {
         />
         <br />
         <input
-          className="InputLogin"
+          className="InputSignUp"
           type="password"
           value={password}
           placeholder="Password"
@@ -51,10 +65,10 @@ const LoginForm = (props) => {
         />
         <br />
         <br />
-        <button type="submit">Submit</button>
+        <button type="submit">Sign up</button>
       </form>
     </div>
   );
 };
 
-export { LoginForm };
+export { SignUpForm };

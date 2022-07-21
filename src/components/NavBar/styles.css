@@ -38,6 +38,12 @@ input {
   border: none;
 }
 
+.WelcomeAndIcons {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
 .NavIcons {
   display: flex;
   flex-direction: row;
@@ -45,10 +51,15 @@ input {
   margin-left: 2rem;
   margin-right: 2rem;
   justify-content: space-between;
-  /* width: 300px; */
 }
 
 .icon {
   justify-content: space-between;
   margin: 1rem;
+}
+
+.iconSmile {
+  color: gold;
+  padding-left: 0.75rem;
+  font-size: 16px;
 }
