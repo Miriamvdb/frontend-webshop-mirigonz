@@ -1,0 +1,15 @@
+.ContainerSignUpForm {
+  display: flex;
+  flex-direction: column;
+  width: 325px;
+  /* border: 1px solid lightgray; */
+  margin: 5rem auto;
+  padding: 3rem;
+  text-align: left;
+}
+
+.InputSignUp {
+  background-color: rgb(245, 245, 245);
+  width: 300px;
+  margin-bottom: 0.5rem;
+}
