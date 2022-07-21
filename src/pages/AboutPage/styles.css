@@ -9,3 +9,18 @@
     flex-direction: column;
     justify-content: center;
 }
+
+.big-text-area-parent {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+}
+
+.big-text-area-child {
+    display: flex;
+    align-items: center;
+
+    width: 60%;
+    min-width: 1050px;
+}

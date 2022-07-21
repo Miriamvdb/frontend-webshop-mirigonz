@@ -59,6 +59,13 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <div>
+        <img
+          src="https://art.pixilart.com/dd3ec29f4164ff1.png"
+          alt="bob-mad"
+          width={"150px"}
+        />
+      </div>
     </div>
   );
 };
