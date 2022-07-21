@@ -32,7 +32,7 @@ const Reviews = () => {
       <div>
         {productList
           ? productList.map((product, i) => (
-              <div className="review-card">
+              <div className="review-card" key={i}>
                 <b>
                   {product.reviewerName} Says {": "}{" "}
                 </b>{" "}

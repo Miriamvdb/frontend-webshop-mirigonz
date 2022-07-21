@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import "./styles.css";
+import axios from "axios";
 
 export default function Modal(props) {
   const [modal, setModal] = useState(false);
+  const [reviewText, setReviewText] = useState("");
+  const [reviewerName, setReviewerName] = useState("");
 
   const toggleModal = () => {
     setModal(!modal);
@@ -14,15 +17,20 @@ export default function Modal(props) {
     document.body.classList.remove("active-modal");
   }
 
-  const [textarea, setTextarea] = useState(
-    "The content of a textarea goes in the value attribute"
-  );
-
-  const handleChange = (event) => {
-    setTextarea(event.target.value);
+  const submitReview = async (event) => {
+    console.log("Hi, you're signed up :)");
+    event.preventDefault();
+    try {
+      await axios.post("http://localhost:4000/reviews", {
+        reviewerName: reviewerName,
+        text: reviewText,
+      });
+      // console.log(response.data.name);
+      // navigate("/");
+    } catch (e) {
+      console.log(e.message);
+    }
   };
-
-  console.log(textarea);
 
   return (
     <>
@@ -35,17 +43,33 @@ export default function Modal(props) {
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
             <h2>{props.formTitle} </h2>
-            <form className="text-area">
-              <textarea value={textarea} onChange={handleChange} />
-            </form>
-            <p>
-              Click the "Submit" button and the form-data will be sent to a page
-              on the server called "action_page.php".
-            </p>
-            <button className="close-modal" onClick={toggleModal}>
-              CLOSE
-            </button>
-            <button>Send Review</button>
+            <div>
+              <form onSubmit={submitReview}>
+                <input
+                  className="InputSignUp"
+                  type="text"
+                  value={reviewText}
+                  placeholder="Review Text"
+                  onChange={(event) => {
+                    setReviewText(event.target.value);
+                  }}
+                  required
+                />
+                <input
+                  className="InputSignUp"
+                  type="text"
+                  value={reviewerName}
+                  placeholder="Reviewer Name"
+                  onChange={(event) => {
+                    setReviewerName(event.target.value);
+                  }}
+                  required
+                />
+                <br />
+                <br />
+                <button type="submit">Send review</button>
+              </form>
+            </div>
           </div>
         </div>
       )}

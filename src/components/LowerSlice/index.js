@@ -5,9 +5,9 @@ import { useState } from "react";
 import "./styles.css";
 
 const tabs = {
-  0: <Description />,
+  0: <Reviews />,
   1: <AdditionalInfo />,
-  2: <Reviews />,
+  2: <Description />,
 };
 
 const LowerSlice = () => {
@@ -18,13 +18,13 @@ const LowerSlice = () => {
     <div className="ContainerLowerSlice">
       <div className="LowerSlice">
         <h3 className="Header" onClick={() => setActiveTab(0)}>
-          Description
+          Reviews
         </h3>
         <h3 className="Header" onClick={() => setActiveTab(1)}>
           Additional Info
         </h3>
         <h3 className="Header" onClick={() => setActiveTab(2)}>
-          Reviews
+          Description
         </h3>
       </div>
       <div className="tab-text">{tabToRender}</div>
