@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import "./styles.css";
 import { LowerSlice } from "../../components";
+import Modal from "../../components/Modal";
 
 const DetailsPage = () => {
   const [products, setProducts] = useState({});
@@ -45,6 +46,12 @@ const DetailsPage = () => {
                 <b>Rating:</b> {products.rating} <b>Category:</b>{" "}
                 {products.categoryId}
               </p>
+              <div>
+                <Modal
+                  buttonName={"Review the product"}
+                  formTitle={"Write your review below:"}
+                />
+              </div>
             </div>
           </div>
         )}

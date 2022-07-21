@@ -36,7 +36,7 @@ const ProductListPage = () => {
             getter={ratingFilterList}
           />
           <FilterList
-            title={"Price"}
+            title={"Price (Don't working)"}
             values={[
               "€0.00 - €150.00",
               "€150.00 - €350.00",
