@@ -1,5 +1,5 @@
 import "./styles.css";
-import { useEffect, useState, useParams } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { ProductCard, FilterList } from "../../components";
 
@@ -10,12 +10,18 @@ const ProductListPage = () => {
   const [priceFilterList, setPriceFilterList] = useState([]);
 
   useEffect(() => {
-    async function getProducts() {
-      const productResponse = await axios.get("http://localhost:4000/products");
-      setProductList(productResponse.data);
-    }
+    try {
+      const getProducts = async () => {
+        const productResponse = await axios.get(
+          "http://localhost:4000/products"
+        );
+        setProductList(productResponse.data);
+      };
 
-    getProducts();
+      getProducts();
+    } catch (e) {
+      console.log(e.message);
+    }
   }, []);
 
   return (
