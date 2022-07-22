@@ -6,10 +6,19 @@ const Footer = () => {
   return (
     <div style={{ color: "white" }} className="FooterContainer">
       <div className="FooterNav">
+        <img
+          src="https://art.pixilart.com/dd3ec29f4164ff1.png"
+          alt="bob-mad"
+          style={{ color: "white", paddingBottom: "20px", width: "150px" }}
+        />
+        <div style={{ color: "white", paddingLeft: "35px", width: "150px" }}>
+          created by
+        </div>
         <NavLink className="FooterLink" to="/">
-          <h1 style={{ color: "white", paddingTop: "8px" }}>GM</h1>
+          <h1 style={{ color: "white", paddingTop: "0px" }}>GM Team</h1>
         </NavLink>{" "}
       </div>
+      <div></div>
       <div className="FooterCatergoriesAccountIcons">
         <div className="FooterCategories">
           <h3>Categories</h3>
@@ -58,13 +67,6 @@ const Footer = () => {
             </a>
           </div>
         </div>
-      </div>
-      <div>
-        <img
-          src="https://art.pixilart.com/dd3ec29f4164ff1.png"
-          alt="bob-mad"
-          width={"150px"}
-        />
       </div>
     </div>
   );

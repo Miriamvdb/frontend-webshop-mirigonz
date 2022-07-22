@@ -1,6 +1,7 @@
 import "./styles.css";
 import { NavLink } from "react-router-dom";
 import { FiShoppingCart, FiHeart, FiSearch } from "react-icons/fi";
+import { StarsRaiting } from "../StarsRaiting";
 
 const ProductCard = (props) => {
   return (
@@ -14,7 +15,10 @@ const ProductCard = (props) => {
         </div>
         <div className="price-rating-container">
           <b className="price">€{props.price}</b>
-          <b>{props.rating} ★★★☆☆</b>
+          {/* <b>{props.rating} ★★★☆☆</b> */}
+          <div>
+            <StarsRaiting />
+          </div>
         </div>
         <div className="product-description">
           <p>{props.description.substring(0, 150)}... </p>
