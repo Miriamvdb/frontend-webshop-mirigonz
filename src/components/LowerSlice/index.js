@@ -4,13 +4,13 @@ import Reviews from "./Reviews";
 import { useState } from "react";
 import "./styles.css";
 
-const tabs = {
-  0: <Reviews />,
-  1: <AdditionalInfo />,
-  2: <Description />,
-};
+const LowerSlice = (props) => {
+  const tabs = {
+    0: <Reviews reviews={props.reviews} />,
+    1: <AdditionalInfo />,
+    2: <Description />,
+  };
 
-const LowerSlice = () => {
   const [activeTab, setActiveTab] = useState(0);
   const tabToRender = tabs[activeTab];
 

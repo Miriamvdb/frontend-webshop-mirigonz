@@ -17,16 +17,19 @@ export default function Modal(props) {
     document.body.classList.remove("active-modal");
   }
 
+  const reloadComponent = () => window.location.reload(false);
+
   const submitReview = async (event) => {
-    console.log("Hi, you're signed up :)");
     event.preventDefault();
+    setModal(!modal);
+    reloadComponent();
+
     try {
       await axios.post("http://localhost:4000/reviews", {
         reviewerName: reviewerName,
         text: reviewText,
+        productId: props.productId,
       });
-      // console.log(response.data.name);
-      // navigate("/");
     } catch (e) {
       console.log(e.message);
     }
@@ -67,7 +70,9 @@ export default function Modal(props) {
                 />
                 <br />
                 <br />
-                <button type="submit">Send review</button>
+                <button type="submit">
+                  Send review of product ID {props.productId}{" "}
+                </button>
               </form>
             </div>
           </div>
