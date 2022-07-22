@@ -51,16 +51,6 @@ export default function Modal(props) {
                 <input
                   className="InputSignUp"
                   type="text"
-                  value={reviewText}
-                  placeholder="Review Text"
-                  onChange={(event) => {
-                    setReviewText(event.target.value);
-                  }}
-                  required
-                />
-                <input
-                  className="InputSignUp"
-                  type="text"
                   value={reviewerName}
                   placeholder="Reviewer Name"
                   onChange={(event) => {
@@ -68,11 +58,20 @@ export default function Modal(props) {
                   }}
                   required
                 />
+                <textarea
+                  className="InputSignUp2"
+                  type="text"
+                  value={reviewText}
+                  placeholder="Review Text"
+                  onChange={(event) => {
+                    setReviewText(event.target.value);
+                  }}
+                  required
+                />
+
                 <br />
                 <br />
-                <button type="submit">
-                  Send review of product ID {props.productId}{" "}
-                </button>
+                <button type="submit">Send review</button>
               </form>
             </div>
           </div>
