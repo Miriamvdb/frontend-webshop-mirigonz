@@ -63,15 +63,9 @@ const DetailsPage = ({ onAdd }) => {
                   <Modal
                     buttonName={"Review the product"}
                     formTitle={"Write your review below:"}
+                    productId={params.id}
                   />
                 </div>
-
-              <div>
-                <Modal
-                  buttonName={"Review the product"}
-                  formTitle={"Write your review below:"}
-                  productId={params.id}
-                />
               </div>
             </div>
           </div>
