@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import "./styles.css";
 import { LowerSlice } from "../../components";
 import Modal from "../../components/Modal";
+import { FiShoppingCart } from "react-icons/fi";
+import "./styles.css";
 
-const DetailsPage = () => {
+const DetailsPage = ({ onAdd }) => {
   const [products, setProducts] = useState({});
   const params = useParams();
+  // const { onAdd } = props;
+  // console.log("On add?", props);
 
   useEffect(() => {
     try {
@@ -26,7 +29,7 @@ const DetailsPage = () => {
 
   return (
     <div>
-      <div className="ContainerDetailsPage">
+      <div onAdd={onAdd} className="ContainerDetailsPage">
         {!products ? (
           "Loading.."
         ) : (
@@ -46,11 +49,22 @@ const DetailsPage = () => {
                 <b>Rating:</b> {products.rating} <b>Category:</b>{" "}
                 {products.categoryId}
               </p>
-              <div>
-                <Modal
-                  buttonName={"Review the product"}
-                  formTitle={"Write your review below:"}
-                />
+              <div className="button-and-reviews">
+                <div>
+                  <button
+                    onClick={() => onAdd(products)}
+                    className="button-shopping-cart"
+                  >
+                    Add to shoppingcart
+                    <FiShoppingCart className="icon-shopping-cart" />
+                  </button>
+                </div>
+                <div>
+                  <Modal
+                    buttonName={"Review the product"}
+                    formTitle={"Write your review below:"}
+                  />
+                </div>
               </div>
             </div>
           </div>

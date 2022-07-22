@@ -22,7 +22,7 @@ export default function Modal(props) {
     setTextarea(event.target.value);
   };
 
-  console.log(textarea);
+  // console.log(textarea);
 
   return (
     <>
