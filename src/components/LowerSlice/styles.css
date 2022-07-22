@@ -28,3 +28,8 @@
 .review-card{
   margin: 15px;
 }
+
+.transparent-button{
+  background-color: Transparent;
+  border: none;
+}
