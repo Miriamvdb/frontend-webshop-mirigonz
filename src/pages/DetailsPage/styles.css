@@ -26,7 +26,34 @@
   text-align: left;
 }
 
-.imput-box{
-border: 2px solid rgb(157, 157, 157);
+.imput-box {
+  border: 2px solid rgb(157, 157, 157);
   border-radius: 4px;
+}
+
+.button-and-reviews {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.button-shopping-cart {
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: tomato;
+  font-size: 16px;
+  padding: 0.5rem 1rem;
+}
+
+.button-shopping-cart:hover {
+  background-color: rgb(255, 78, 47);
+}
+
+.button-shopping-cart:focus {
+  background-color: rgb(255, 49, 12);
+}
+
+.icon-shopping-cart {
+  padding-left: 0.5rem;
 }

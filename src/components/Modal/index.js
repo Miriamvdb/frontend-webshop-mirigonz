@@ -24,6 +24,7 @@ export default function Modal(props) {
     setModal(!modal);
     reloadComponent();
 
+  // console.log(textarea);
     try {
       await axios.post("http://localhost:4000/reviews", {
         reviewerName: reviewerName,

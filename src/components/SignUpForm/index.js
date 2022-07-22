@@ -8,8 +8,6 @@ const SignUpForm = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  console.log(name);
-
   const submitSignUp = async (event) => {
     console.log("Hi, you're signed up :)");
     event.preventDefault();

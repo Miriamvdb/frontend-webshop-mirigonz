@@ -1,0 +1,36 @@
+.main-container {
+  margin: 5rem;
+  text-align: start;
+}
+
+.container-shopping-cart-and-totals {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  min-height: 20rem;
+}
+
+.container-shopping-cart {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+  margin-right: 2rem;
+  padding: 0.5rem 1.5rem;
+  background-image: linear-gradient(
+    to bottom,
+    rgb(252, 237, 235),
+    rgba(252, 237, 235, 0)
+  );
+}
+
+.container-totals {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 0.5rem 1.5rem;
+  background-image: linear-gradient(
+    to bottom,
+    rgb(252, 237, 235),
+    rgba(252, 237, 235, 0)
+  );
+}

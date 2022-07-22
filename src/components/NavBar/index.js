@@ -70,7 +70,7 @@ const NavBar = (props) => {
         )}
         <NavLink
           style={({ isActive }) => (isActive ? { color: "white" } : undefined)}
-          to="/shoppingcard"
+          to="/shoppingcart"
         >
           <FiShoppingCart className="icon" />
         </NavLink>
