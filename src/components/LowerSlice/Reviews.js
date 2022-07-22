@@ -1,42 +1,56 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const Reviews = () => {
-  const [productList, setProductList] = useState(null);
+const Reviews = (props) => {
+  // const [reviewList, setReviewList] = useState(null);
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   try {
+  //     const getReviews = async () => {
+  //       const reviewResponse = await axios.get("http://localhost:4000/reviews");
+  //       setReviewList(reviewResponse.data);
+  //     };
+
+  //     getReviews();
+  //   } catch (e) {
+  //     console.log(e.message);
+  //   }
+  // }, []);
+
+  const reviewList2 = props.reviews;
+
+  const reloadComponent = () => window.location.reload(false);
+
+  const deletReview = async (id) => {
+    // event.preventDefault();
+    reloadComponent();
+
     try {
-      const getProducts = async () => {
-        const productResponse = await axios.get(
-          "http://localhost:4000/reviews"
-        );
-        setProductList(productResponse.data);
-      };
-
-      getProducts();
+      await axios.delete(`http://localhost:4000/reviews/${id}`, {
+        // reviewerName: reviewerName,
+        // text: reviewText,
+      });
     } catch (e) {
       console.log(e.message);
     }
-  }, []);
+  };
+
   return (
     <div className="ContainerFakeText">
-      {/* <p>
-        Dit is een fake reviewtekst. Alles wat hier staat is slechts om een
-        indruk te geven van het grafische effect van tekst op deze plek. Wat u
-        hier leest is een voorbeeldtekst. Deze wordt later vervangen door de
-        uiteindelijke tekst, die nu nog niet bekend is. De faketekst is dus een
-        tekst die eigenlijk nergens over gaat. Het grappige is, dat mensen deze
-        toch vaak lezen. Zelfs als men weet dat het om een faketekst gaat, lezen
-        ze toch door.
-      </p> */}
       <div>
-        {productList
-          ? productList.map((product, i) => (
-              <div className="review-card">
+        {reviewList2
+          ? reviewList2.map((review, i) => (
+              <div className="review-card" key={i}>
                 <b>
-                  {product.reviewerName} Says {": "}{" "}
+                  {review.reviewerName} Says {": "}{" "}
                 </b>{" "}
-                {product.text}
+                {review.text}{" "}
+                <button
+                  className="transparent-button"
+                  onClick={() => deletReview(review.id)}
+                >
+                  ❌
+                </button>
               </div>
             ))
           : ""}

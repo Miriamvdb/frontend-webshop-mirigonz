@@ -15,7 +15,7 @@ const DetailsPage = () => {
         const response = await axios.get(
           `http://localhost:4000/products/${params.id}`
         );
-        console.log(response);
+        // console.log(response);
         setProducts(response.data);
       };
       getProducts();
@@ -50,13 +50,14 @@ const DetailsPage = () => {
                 <Modal
                   buttonName={"Review the product"}
                   formTitle={"Write your review below:"}
+                  productId={params.id}
                 />
               </div>
             </div>
           </div>
         )}
       </div>
-      <LowerSlice />
+      <LowerSlice reviews={products.reviews} />
     </div>
   );
 };
